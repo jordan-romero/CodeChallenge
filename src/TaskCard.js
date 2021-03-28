@@ -4,7 +4,7 @@ import Icon from '@mdi/react'
 
 export default function TaskCard({ name, isFirstCard }) {
   const [isCompleted, setIsCompleted] = useState(false)
-
+  
   return (
     <div
       className="task-card"
