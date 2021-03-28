@@ -16,8 +16,8 @@ function App() {
       : setCount((prevCount) => prevCount - 1)
   }
 
-  const deleteTodoHandler = (todoName) => {
-    setTasks((prevTasks) => prevTasks.filter((el) => el.name !== todoName))
+  const deleteTodoHandler = (todoId) => {
+    setTasks((prevTasks) => prevTasks.filter((el) => el.id !== todoId))
   }
 
   return (
@@ -33,6 +33,7 @@ function App() {
             <TaskCard
               key={idx}
               name={entry.name}
+              id={entry.id}
               isFirstCard={idx === 0}
               updateCountHandler={updateCountHandler}
               deleteTodoHandler={deleteTodoHandler}

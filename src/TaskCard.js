@@ -3,6 +3,7 @@ import { mdiCheckBold, mdiDeleteForever } from '@mdi/js'
 import Icon from '@mdi/react'
 
 export default function TaskCard({
+  id,
   name,
   isFirstCard,
   updateCountHandler,
@@ -46,7 +47,7 @@ export default function TaskCard({
         <Icon
           path={mdiDeleteForever}
           onClick={() => {
-            deleteTodoHandler(name)
+            deleteTodoHandler(id)
           }}
           className="icon"
           color="rgba(31, 31, 31, 0.1)"
