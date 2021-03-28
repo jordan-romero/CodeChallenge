@@ -11,10 +11,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   const updateCountHandler = (incOrDec) => {
-    console.log(incOrDec)
     incOrDec === 'increment'
       ? setCount((prevCount) => prevCount + 1)
       : setCount((prevCount) => prevCount - 1)
+  }
+
+  const deleteTodoHandler = (todoName) => {
+    setTasks((prevTasks) => prevTasks.filter((el) => el.name !== todoName))
   }
 
   return (
@@ -32,6 +35,7 @@ function App() {
               name={entry.name}
               isFirstCard={idx === 0}
               updateCountHandler={updateCountHandler}
+              deleteTodoHandler={deleteTodoHandler}
             ></TaskCard>
           ))}
           <AddTaskInput />

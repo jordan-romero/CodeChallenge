@@ -2,7 +2,12 @@ import { useState } from 'react'
 import { mdiCheckBold, mdiDeleteForever } from '@mdi/js'
 import Icon from '@mdi/react'
 
-export default function TaskCard({ name, isFirstCard, updateCountHandler }) {
+export default function TaskCard({
+  name,
+  isFirstCard,
+  updateCountHandler,
+  deleteTodoHandler
+}) {
   const [isCompleted, setIsCompleted] = useState(false)
 
   const completedHandler = () => {
@@ -41,7 +46,7 @@ export default function TaskCard({ name, isFirstCard, updateCountHandler }) {
         <Icon
           path={mdiDeleteForever}
           onClick={() => {
-            /* To Be Implemented: On task delete click */
+            deleteTodoHandler(name)
           }}
           className="icon"
           color="rgba(31, 31, 31, 0.1)"
