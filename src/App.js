@@ -26,6 +26,18 @@ function App() {
     setTasks((prevTasks) => [...prevTasks, newerTask])
   }
 
+  const filterTaskHandler = (query) => {
+    console.log(query)
+    if (query === '') {
+      setTasks(taskData)
+    } else {
+      const filtered = tasks.filter((task) =>
+        task.name.toLowerCase().includes(query.toLowerCase())
+      )
+      setTasks(filtered)
+    }
+  }
+
   return (
     <div className="layout">
       <div className="frame">
@@ -33,7 +45,7 @@ function App() {
           <h1>Tasks</h1>
           <span className="completed-count-text">{count} completed</span>
         </div>
-        <FilterInput />
+        <FilterInput filterTaskHandler={filterTaskHandler} />
         <div className="frame-body">
           {tasks.map((entry, idx) => (
             <TaskCard
