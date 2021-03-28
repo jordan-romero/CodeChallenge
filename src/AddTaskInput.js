@@ -6,7 +6,7 @@ export default function AddTaskInput({ addTaskHandler }) {
   const [value, setValue] = useState('')
 
   const onClickHandler = () => {
-    addTaskHandler(value)
+    value !== '' && addTaskHandler(value)
     setValue('')
   }
 
