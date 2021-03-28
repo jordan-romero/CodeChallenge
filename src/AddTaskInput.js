@@ -5,6 +5,11 @@ import Icon from '@mdi/react'
 export default function AddTaskInput({ addTaskHandler }) {
   const [value, setValue] = useState('')
 
+  const onClickHandler = () => {
+    addTaskHandler(value)
+    setValue('')
+  }
+
   return (
     <div className="input-container">
       <input
@@ -23,7 +28,7 @@ export default function AddTaskInput({ addTaskHandler }) {
           path={mdiPlusThick}
           size={1}
           color="rgba(31, 31, 31, 0.1)"
-          onClick={() => addTaskHandler(value)}
+          onClick={onClickHandler}
         />
       </div>
     </div>
